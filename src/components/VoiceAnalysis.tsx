@@ -89,8 +89,8 @@ export default function VoiceAnalysis() {
             Every pattern detected.
           </h2>
           <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Real-time speech-to-text transcription powered by our fine-tuned Whisper model,
-            combined with 6-layer voice forensics that catches what humans can&apos;t hear.
+            Real-time speech-to-text transcription combined with 6-layer
+            voice forensics that catches what humans can&apos;t hear.
           </p>
         </div>
 
