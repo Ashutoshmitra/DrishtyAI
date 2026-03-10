@@ -46,6 +46,9 @@ export default function WaitlistForm() {
         body: JSON.stringify({ email, role, linkedin }),
       });
       if (!res.ok) throw new Error();
+      if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).fbq) {
+        (window as unknown as Record<string, (...args: unknown[]) => void>).fbq("trackCustom", "DrishtyWaitlist", { role });
+      }
       setStatus("success");
       setEmail("");
       setRole("");
