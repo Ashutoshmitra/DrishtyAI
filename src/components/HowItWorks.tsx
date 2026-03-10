@@ -4,9 +4,9 @@ import { useReveal } from "@/hooks/useReveal";
 
 const steps = [
   {
-    title: "Connect Your Platform",
+    title: "Install the Desktop Agent",
     description:
-      "Integrate with your interview tool in under 5 minutes. Works with Zoom, Meet, and Teams.",
+      "Share a one-click installer link with your candidate. The lightweight agent sets up in under a minute.",
     gradient: "from-purple-400 via-violet-300 to-blue-200",
     icon: (
       <svg className="w-8 h-8 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -15,9 +15,9 @@ const steps = [
     ),
   },
   {
-    title: "Conduct Interviews Normally",
+    title: "Run the Interview",
     description:
-      "Drishty AI monitors silently in the background. Zero disruption to the candidate experience.",
+      "Use any video platform you prefer. The agent monitors processes, audio, and behavior in real-time on the candidate's machine.",
     gradient: "from-red-400 via-orange-300 to-amber-200",
     icon: (
       <svg className="w-8 h-8 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -45,9 +45,9 @@ export default function HowItWorks() {
     <section id="how-it-works" className="py-24 px-6">
       <div ref={ref} className="reveal max-w-7xl mx-auto">
         <h2 className="text-3xl sm:text-[40px] font-normal text-foreground text-center leading-tight mb-6">
-          Built to run anywhere
+          Three steps to
           <br />
-          your team interviews
+          cheat-proof interviews
         </h2>
         <p className="text-center text-gray-500 text-lg mb-16">
           Simple setup. Powerful detection. Zero friction.

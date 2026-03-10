@@ -67,13 +67,13 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="#pricing"
+              href="#waitlist"
               className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-foreground rounded-full hover:bg-gray-800 transition-colors"
             >
-              Start Free Trial
+              Join Waitlist
             </a>
             <a
-              href="#contact"
+              href="#waitlist"
               className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-foreground border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             >
               Talk to Sales
@@ -111,14 +111,14 @@ export default function Navbar() {
             ))}
             <div className="flex flex-col gap-2 pt-2">
               <a
-                href="#pricing"
+                href="#waitlist"
                 onClick={() => setMobileOpen(false)}
                 className="block text-center px-6 py-2.5 text-sm font-medium text-white bg-foreground rounded-full"
               >
-                Start Free Trial
+                Join Waitlist
               </a>
               <a
-                href="#contact"
+                href="#waitlist"
                 onClick={() => setMobileOpen(false)}
                 className="block text-center px-6 py-2.5 text-sm font-medium text-foreground border border-gray-300 rounded-full"
               >

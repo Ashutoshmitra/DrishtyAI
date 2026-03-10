@@ -9,6 +9,7 @@ import HowItWorks from "@/components/HowItWorks";
 import UseCases from "@/components/UseCases";
 import Testimonial from "@/components/Testimonial";
 import Pricing from "@/components/Pricing";
+import WaitlistForm from "@/components/WaitlistForm";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -26,6 +27,7 @@ export default function Home() {
       <UseCases />
       <Testimonial />
       <Pricing />
+      <WaitlistForm />
       <CTASection />
       <Footer />
     </>

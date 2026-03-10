@@ -14,9 +14,9 @@ const pillars = [
       "Multi-signal analysis combining latency patterns, linguistics, and screen behavior",
   },
   {
-    title: "Zero candidate friction",
+    title: "Tamper-proof desktop agent",
     description:
-      "Silent background monitoring with no installations or disruptions needed",
+      "Lightweight agent installed on the candidate's machine — runs silently with kernel-level process monitoring",
   },
 ];
 

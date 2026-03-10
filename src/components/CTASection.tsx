@@ -14,10 +14,10 @@ export default function CTASection() {
               trustworthy hiring with Drishty.
             </h2>
             <a
-              href="#pricing"
+              href="#waitlist"
               className="mt-8 inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-white bg-foreground rounded-full hover:bg-gray-800 transition-colors"
             >
-              Get Started Now
+              Join Waitlist
             </a>
           </div>
         </div>

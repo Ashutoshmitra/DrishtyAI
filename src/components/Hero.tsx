@@ -22,10 +22,16 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
-            href="#pricing"
+            href="#waitlist"
             className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-white bg-foreground rounded-full hover:bg-gray-800 transition-colors"
           >
-            Start Free Trial
+            Join Waitlist
+          </a>
+          <a
+            href="#waitlist"
+            className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-foreground border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+          >
+            Talk to Sales
           </a>
         </div>
 
