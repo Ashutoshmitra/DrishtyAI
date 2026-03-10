@@ -1,3 +1,5 @@
+import WaitlistForm from "./WaitlistForm";
+
 export default function Hero() {
   return (
     <section className="hero-gradient pt-20 pb-24 px-6">
@@ -20,23 +22,14 @@ export default function Hero() {
           AI tools like ChatGPT, Copilot, and <span className="text-foreground font-medium">screen-share hacks</span> — in real time.
         </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href="#waitlist"
-            className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-white bg-foreground rounded-full hover:bg-gray-800 transition-colors"
-          >
-            Join Waitlist
-          </a>
-          <a
-            href="#waitlist"
-            className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-foreground border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
-          >
-            Talk to Sales
-          </a>
-        </div>
+        {/* Inline waitlist form */}
+        <WaitlistForm inline />
+        <p className="mt-3 text-xs text-gray-400">
+          Get 30 days free when we launch. No spam.
+        </p>
 
         {/* Trust logos */}
-        <p className="mt-16 text-xs tracking-widest uppercase text-gray-400 font-medium">
+        <p className="mt-12 text-xs tracking-widest uppercase text-gray-400 font-medium">
           India hires with Drishty AI
         </p>
       </div>

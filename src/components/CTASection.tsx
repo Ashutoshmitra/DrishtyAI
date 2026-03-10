@@ -1,3 +1,5 @@
+import WaitlistForm from "./WaitlistForm";
+
 export default function CTASection() {
   return (
     <section className="py-24 px-6">
@@ -9,16 +11,16 @@ export default function CTASection() {
 
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-[40px] font-normal text-white leading-tight">
-              Build the future of
+              Stop hiring AI.
               <br />
-              trustworthy hiring with Drishty AI.
+              Start hiring talent.
             </h2>
-            <a
-              href="#waitlist"
-              className="mt-8 inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-white bg-foreground rounded-full hover:bg-gray-800 transition-colors"
-            >
-              Join Waitlist
-            </a>
+            <p className="mt-4 text-gray-400 text-sm">
+              Get 30 days free when we launch.
+            </p>
+            <div className="[&_input]:border-gray-600 [&_input]:bg-white/10 [&_input]:text-white [&_input]:placeholder:text-gray-400">
+              <WaitlistForm inline />
+            </div>
           </div>
         </div>
       </div>
