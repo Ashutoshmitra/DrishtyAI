@@ -32,10 +32,6 @@ export default function WaitlistForm() {
     e.preventDefault();
     if (!email || !role) return;
 
-    if (!isCompanyEmail(email)) {
-      setEmailError("Sorry, the waitlist is only open for company email addresses");
-      return;
-    }
     setEmailError("");
 
     setStatus("loading");
@@ -91,7 +87,7 @@ export default function WaitlistForm() {
             <input
               type="email"
               required
-              placeholder="Work email (company domain only)"
+              placeholder="Email address"
               value={email}
               onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
               className={`w-full px-4 py-3 rounded-xl border text-sm text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors ${emailError ? "border-red-400" : "border-gray-300"}`}
