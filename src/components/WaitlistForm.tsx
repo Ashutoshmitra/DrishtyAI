@@ -10,26 +10,46 @@ const roles = [
   "Other",
 ];
 
+const FREE_DOMAINS = new Set([
+  "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com",
+  "icloud.com", "mail.com", "protonmail.com", "zoho.com", "yandex.com",
+  "live.com", "msn.com", "me.com", "inbox.com", "gmx.com", "rediffmail.com",
+]);
+
+function isCompanyEmail(email: string) {
+  const domain = email.split("@")[1]?.toLowerCase();
+  return domain && !FREE_DOMAINS.has(domain);
+}
+
 export default function WaitlistForm() {
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !role) return;
 
+    if (!isCompanyEmail(email)) {
+      setEmailError("Sorry, the waitlist is only open for company email addresses");
+      return;
+    }
+    setEmailError("");
+
     setStatus("loading");
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, role }),
+        body: JSON.stringify({ email, role, linkedin }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
       setEmail("");
       setRole("");
+      setLinkedin("");
     } catch {
       setStatus("error");
     }
@@ -68,11 +88,12 @@ export default function WaitlistForm() {
             <input
               type="email"
               required
-              placeholder="Work email"
+              placeholder="Work email (company domain only)"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors"
+              onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
+              className={`w-full px-4 py-3 rounded-xl border text-sm text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors ${emailError ? "border-red-400" : "border-gray-300"}`}
             />
+            {emailError && <p className="mt-1.5 text-red-500 text-xs">{emailError}</p>}
           </div>
           <div>
             <select
@@ -87,6 +108,15 @@ export default function WaitlistForm() {
                 <option key={r} value={r}>{r}</option>
               ))}
             </select>
+          </div>
+          <div>
+            <input
+              type="url"
+              placeholder="LinkedIn profile (optional)"
+              value={linkedin}
+              onChange={(e) => setLinkedin(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors"
+            />
           </div>
           <button
             type="submit"

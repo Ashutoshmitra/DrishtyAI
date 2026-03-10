@@ -45,8 +45,9 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-[72px]">
-          <a href="#" className="text-2xl font-semibold tracking-tight text-foreground">
-            drishty
+          <a href="#" className="inline-flex items-center gap-2">
+            <span className="text-2xl font-semibold text-foreground" style={{ fontFamily: "var(--font-hindi), serif" }}>दृष्टि</span>
+            <span className="text-base font-medium text-gray-500">AI</span>
           </a>
 
           {/* Desktop nav */}

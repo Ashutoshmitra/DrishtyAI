@@ -4,46 +4,61 @@ import { useReveal } from "@/hooks/useReveal";
 
 const plans = [
   {
-    name: "Starter",
+    name: "Free",
     price: "Free",
     period: "",
-    description: "Try Drishty AI with your team",
+    description: "Get started with basic detection",
     features: [
-      "10 interviews/month",
-      "Basic AI detection",
+      "3 interviews/month",
+      "Web-only detection",
+      "Basic voice analysis",
       "Standard reports",
-      "Email support",
     ],
     cta: "Get Started",
     highlighted: false,
   },
   {
-    name: "Professional",
-    price: "₹4,999",
-    period: "/month",
-    description: "For growing recruiting teams",
+    name: "Pay as you go",
+    price: "₹149",
+    period: "/interview",
+    description: "No commitment, pay per use",
     features: [
-      "100 interviews/month",
+      "No monthly limit",
+      "Desktop agent",
       "Full detection suite",
       "Detailed trust reports",
-      "Platform integrations",
-      "Priority support",
+      "PDF export",
+    ],
+    cta: "Get Started",
+    highlighted: false,
+  },
+  {
+    name: "Scale",
+    price: "₹4,999",
+    period: "/month",
+    description: "For large hiring operations",
+    highlighted: true,
+    features: [
+      "150 interviews/month",
+      "API access",
+      "Team members (up to 10)",
+      "Custom signature rules",
+      "Dedicated support",
     ],
     cta: "Start Free Trial",
-    highlighted: true,
   },
   {
     name: "Enterprise",
     price: "Custom",
     period: "",
-    description: "For large-scale hiring operations",
+    description: "For enterprise-scale operations",
     features: [
       "Unlimited interviews",
-      "API access",
-      "Custom integrations",
-      "Dedicated account manager",
-      "SLA guarantee",
+      "Unlimited team members",
       "On-premise option",
+      "SSO / SAML",
+      "SLA guarantee",
+      "Dedicated account manager",
     ],
     cta: "Contact Sales",
     highlighted: false,
@@ -56,37 +71,54 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-24 px-6">
       <div ref={ref} className="reveal max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-6">
           <h2 className="text-3xl sm:text-[40px] font-normal text-foreground leading-tight">
-            Transparent pricing.
-            <br />
-            No surprises.
+            Simple, transparent pricing.
           </h2>
           <p className="mt-4 text-lg text-gray-500">
-            Start free, scale as you grow
+            Start free. Pay only when you need more.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Free trial banner */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <div className="bg-gradient-to-r from-accent/5 via-accent/10 to-accent/5 rounded-2xl border border-accent/20 px-8 py-5 text-center">
+            <p className="text-foreground font-medium">
+              Try all features free for 1 month
+            </p>
+            <p className="text-sm text-gray-500 mt-1">
+              Full access to desktop agent, all detection layers, and 30
+              interviews. No credit card required.
+            </p>
+            <a
+              href="#"
+              className="inline-block mt-4 bg-accent text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-accent-dark transition-colors"
+            >
+              Join the Waitlist
+            </a>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-2xl p-8 transition-shadow duration-300 ${
+              className={`rounded-2xl p-6 transition-shadow duration-300 flex flex-col ${
                 plan.highlighted
-                  ? "bg-foreground text-white shadow-xl"
+                  ? "bg-foreground text-white shadow-xl md:scale-105"
                   : "bg-white border border-gray-200 hover:shadow-md"
               }`}
             >
               <h3
-                className={`text-sm font-medium tracking-widest uppercase ${
+                className={`text-xs font-medium tracking-widest uppercase ${
                   plan.highlighted ? "text-gray-400" : "text-gray-500"
                 }`}
               >
                 {plan.name}
               </h3>
-              <div className="mt-4 flex items-baseline gap-1">
+              <div className="mt-3 flex items-baseline gap-0.5">
                 <span
-                  className={`text-4xl font-semibold ${
+                  className={`text-3xl font-semibold ${
                     plan.highlighted ? "text-white" : "text-foreground"
                   }`}
                 >
@@ -94,26 +126,29 @@ export default function Pricing() {
                 </span>
                 {plan.period && (
                   <span
-                    className={
+                    className={`text-sm ${
                       plan.highlighted ? "text-gray-400" : "text-gray-500"
-                    }
+                    }`}
                   >
                     {plan.period}
                   </span>
                 )}
               </div>
               <p
-                className={`mt-2 text-sm ${
+                className={`mt-2 text-xs ${
                   plan.highlighted ? "text-gray-400" : "text-gray-500"
                 }`}
               >
                 {plan.description}
               </p>
-              <ul className="mt-8 space-y-3">
+              <ul className="mt-6 space-y-2.5 flex-1">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm">
+                  <li
+                    key={feature}
+                    className="flex items-start gap-2.5 text-xs"
+                  >
                     <svg
-                      className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
+                      className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${
                         plan.highlighted ? "text-accent-light" : "text-accent"
                       }`}
                       fill="none"
@@ -139,7 +174,7 @@ export default function Pricing() {
               </ul>
               <a
                 href="#"
-                className={`mt-8 block text-center px-6 py-3 rounded-full text-sm font-medium transition-colors ${
+                className={`mt-6 block text-center px-5 py-2.5 rounded-full text-sm font-medium transition-colors ${
                   plan.highlighted
                     ? "bg-white text-foreground hover:bg-gray-100"
                     : "bg-foreground text-white hover:bg-gray-800"
@@ -150,6 +185,11 @@ export default function Pricing() {
             </div>
           ))}
         </div>
+
+        <p className="text-center text-sm text-gray-400 mt-8">
+          All prices in INR + applicable GST. Annual billing available at 20%
+          discount.
+        </p>
       </div>
     </section>
   );

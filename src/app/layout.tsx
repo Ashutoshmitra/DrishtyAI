@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Tiro_Devanagari_Hindi } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const tiroDevanagari = Tiro_Devanagari_Hindi({
+  variable: "--font-hindi",
+  weight: "400",
+  subsets: ["devanagari"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} ${tiroDevanagari.variable} antialiased`}>{children}</body>
     </html>
   );
 }

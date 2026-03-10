@@ -6,7 +6,7 @@ const capabilities = [
   {
     title: "Zero-Visibility Process Injection",
     description:
-      "Drishty Desktop runs as a signed kernel-level background service with no visible window, taskbar icon, or system tray presence. Uses COM surrogate hosting to mask its process footprint — invisible to candidates even with Task Manager open.",
+      "Drishty AI Desktop runs as a signed kernel-level background service with no visible window, taskbar icon, or system tray presence. Uses COM surrogate hosting to mask its process footprint — invisible to candidates even with Task Manager open.",
     technical: "Process: drishty-service.exe → svchost.exe (COM Surrogate)",
   },
   {
@@ -113,7 +113,7 @@ export default function DesktopApp() {
         {/* Privacy notice */}
         <div className="mt-12 text-center">
           <p className="text-xs text-gray-500 max-w-2xl mx-auto">
-            Drishty Desktop requires candidate consent before installation. All monitoring is
+            Drishty AI Desktop requires candidate consent before installation. All monitoring is
             limited to interview session windows only. No keylogging, no screen recording, no
             personal data collection. SOC 2 Type II certified. ISO 27001 compliant.
           </p>

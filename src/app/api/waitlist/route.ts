@@ -5,7 +5,7 @@ const SHEET_ID = '1wv00B3nn89HcV5wSRmTn2uPLbAQO0IBC59eNfimtJOY';
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, role } = await request.json();
+    const { email, role, linkedin } = await request.json();
 
     if (!email || !role) {
       return NextResponse.json({ error: 'Email and role are required' }, { status: 400 });
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
       hour12: true,
     });
 
-    const row = [email, role, timestamp];
+    const row = [email, role, linkedin || '', timestamp];
 
     // Check if headers exist
     const existingData = await sheets.spreadsheets.values.get({
@@ -46,10 +46,10 @@ export async function POST(request: NextRequest) {
     if (!existingData.data.values || existingData.data.values.length === 0) {
       await sheets.spreadsheets.values.update({
         spreadsheetId: SHEET_ID,
-        range: 'DrishtyResponses!A1:C1',
+        range: 'DrishtyResponses!A1:D1',
         valueInputOption: 'USER_ENTERED',
         requestBody: {
-          values: [['Email', 'Role', 'Timestamp']],
+          values: [['Email', 'Role', 'LinkedIn', 'Timestamp']],
         },
       });
     }
@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
 
     await sheets.spreadsheets.values.update({
       spreadsheetId: SHEET_ID,
-      range: `DrishtyResponses!A${lastRow}:C${lastRow}`,
+      range: `DrishtyResponses!A${lastRow}:D${lastRow}`,
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values: [row],

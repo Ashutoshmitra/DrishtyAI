@@ -11,7 +11,7 @@ export default function CTASection() {
             <h2 className="text-3xl sm:text-[40px] font-normal text-white leading-tight">
               Build the future of
               <br />
-              trustworthy hiring with Drishty.
+              trustworthy hiring with Drishty AI.
             </h2>
             <a
               href="#waitlist"

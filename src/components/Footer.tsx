@@ -20,8 +20,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="col-span-2">
-            <span className="text-2xl font-semibold tracking-tight text-foreground">
-              drishty
+            <span className="inline-flex items-center gap-2">
+              <span className="text-2xl font-semibold text-foreground" style={{ fontFamily: "var(--font-hindi), serif" }}>दृष्टि</span>
+              <span className="text-base font-medium text-gray-500">AI</span>
             </span>
             <p className="mt-3 text-sm text-gray-500 max-w-xs leading-relaxed">
               AI-powered interview integrity platform.

@@ -5,19 +5,19 @@ export default function Hero() {
         {/* Pill badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 text-sm text-gray-600 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-          AI Interview Integrity Platform
+          India&apos;s first anti-cheating platform for interviews
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-normal text-foreground leading-[1.15] tracking-tight">
-          Detect AI cheating
+          Know if your candidate
           <br />
-          in interviews
+          is using AI to cheat
         </h1>
 
         <p className="mt-6 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-          Invisible desktop agent. Real-time voice forensics. 200+ AI tool signatures.
+          Drishty AI sits on the candidate&apos;s computer during interviews and catches
           <br className="hidden sm:block" />
-          The most advanced interview integrity platform, built in India.
+          AI tools like ChatGPT, Copilot, and <span className="text-foreground font-medium">screen-share hacks</span> — in real time.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -37,7 +37,7 @@ export default function Hero() {
 
         {/* Trust logos */}
         <p className="mt-16 text-xs tracking-widest uppercase text-gray-400 font-medium">
-          India hires with Drishty
+          India hires with Drishty AI
         </p>
       </div>
     </section>
