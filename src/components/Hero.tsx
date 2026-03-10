@@ -14,10 +14,10 @@ export default function Hero() {
           in interviews
         </h1>
 
-        <p className="mt-6 text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
-          Built for recruiting teams. Powered by multi-signal analysis.
+        <p className="mt-6 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          Invisible desktop agent. Real-time voice forensics. 200+ AI tool signatures.
           <br className="hidden sm:block" />
-          Delivering trustworthy hiring at scale.
+          The most advanced interview integrity platform, built in India.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">

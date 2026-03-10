@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import LogoCarousel from "@/components/LogoCarousel";
 import StatsBar from "@/components/StatsBar";
 import Features from "@/components/Features";
+import DesktopApp from "@/components/DesktopApp";
+import VoiceAnalysis from "@/components/VoiceAnalysis";
 import HowItWorks from "@/components/HowItWorks";
 import UseCases from "@/components/UseCases";
 import Testimonial from "@/components/Testimonial";
@@ -18,6 +20,8 @@ export default function Home() {
       <LogoCarousel />
       <StatsBar />
       <Features />
+      <DesktopApp />
+      <VoiceAnalysis />
       <HowItWorks />
       <UseCases />
       <Testimonial />

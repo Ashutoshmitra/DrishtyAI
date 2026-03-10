@@ -6,9 +6,9 @@ const tabs = ["FOR HR TEAMS", "FOR STAFFING FIRMS", "FOR RECRUITERS"];
 
 const features = [
   {
-    title: "Real-Time Detection",
+    title: "Real-Time Detection Engine",
     description:
-      "Identifies AI-generated responses instantly as candidates speak during live interviews.",
+      "Sub-200ms inference pipeline analyzes every response as it's spoken. Our ensemble model combines transformer-based linguistic analysis with acoustic feature extraction to flag AI-generated content with 97.3% accuracy across 12 Indian languages.",
     gradient: "from-orange-400 via-amber-400 to-yellow-300",
     icon: (
       <svg className="w-16 h-16 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
@@ -19,7 +19,7 @@ const features = [
   {
     title: "Copilot Fingerprinting",
     description:
-      "Detects known tools like Cluely, FinalRound AI, Interview Coder, Parakeet, and ChatGPT voice mode.",
+      "Maintains a continuously-updated signature database of 200+ AI interview tools. Uses process behavioral analysis, network endpoint matching, and UI overlay detection to identify tools even when renamed or obfuscated.",
     gradient: "from-violet-400 via-purple-300 to-blue-200",
     pills: ["Cluely", "FinalRound", "Parakeet", "ChatGPT", "Interview Coder"],
     icon: (
@@ -31,7 +31,7 @@ const features = [
   {
     title: "Detailed Trust Reports",
     description:
-      "Get confidence scores, flagged responses, and specific indicators for every interview.",
+      "Per-question trust scores with explainable AI — see exactly which signals triggered each flag. Timestamped evidence logs, voice forensics summaries, and exportable PDF reports for compliance and audit trails.",
     gradient: "from-emerald-400 via-teal-300 to-cyan-200",
     icon: (
       <svg className="w-16 h-16 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
