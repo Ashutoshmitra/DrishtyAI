@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,13 +18,19 @@ export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, role: "", linkedin: "" }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
+        setStatus("error");
+        return;
+      }
       if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).fbq) {
         (window as unknown as Record<string, (...args: unknown[]) => void>).fbq("trackCustom", "DrishtyWaitlist", {});
       }
       setStatus("success");
       setEmail("");
     } catch {
+      setErrorMsg("Something went wrong. Please try again.");
       setStatus("error");
     }
   };
@@ -74,7 +81,7 @@ export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
           {status === "loading" ? "..." : "Get Early Access"}
         </button>
         {status === "error" && (
-          <p className="text-red-500 text-xs">Something went wrong.</p>
+          <p className="text-red-500 text-xs">{errorMsg}</p>
         )}
       </form>
     );
@@ -108,7 +115,7 @@ export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
           </button>
         </form>
         {status === "error" && (
-          <p className="mt-2 text-red-500 text-xs text-center">Something went wrong. Please try again.</p>
+          <p className="mt-2 text-red-500 text-xs text-center">{errorMsg}</p>
         )}
       </div>
     </section>

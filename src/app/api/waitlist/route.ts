@@ -11,6 +11,17 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
+    const PERSONAL_DOMAINS = new Set([
+      'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'live.com',
+      'icloud.com', 'me.com', 'mac.com', 'aol.com', 'protonmail.com',
+      'proton.me', 'zoho.com', 'yandex.com', 'mail.com', 'gmx.com',
+      'rediffmail.com', 'msn.com', 'inbox.com', 'fastmail.com',
+    ]);
+    const domain = email.split('@')[1]?.toLowerCase();
+    if (!domain || PERSONAL_DOMAINS.has(domain)) {
+      return NextResponse.json({ error: 'Please use your company email address' }, { status: 400 });
+    }
+
     const serviceAccountKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
     if (!serviceAccountKey) {
       return NextResponse.json({ error: 'Server misconfigured' }, { status: 500 });
