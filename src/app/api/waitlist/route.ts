@@ -7,8 +7,8 @@ export async function POST(request: NextRequest) {
   try {
     const { email, role, linkedin } = await request.json();
 
-    if (!email || !role) {
-      return NextResponse.json({ error: 'Email and role are required' }, { status: 400 });
+    if (!email) {
+      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
     const serviceAccountKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
