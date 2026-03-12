@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js";
 
 export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
   const [email, setEmail] = useState("");
@@ -27,6 +28,7 @@ export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
       if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).fbq) {
         (window as unknown as Record<string, (...args: unknown[]) => void>).fbq("trackCustom", "DrishtyWaitlist", {});
       }
+      posthog.capture("waitlist_signup", { email });
       setStatus("success");
       setEmail("");
     } catch {
