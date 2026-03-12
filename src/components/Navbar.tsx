@@ -25,14 +25,17 @@ export default function Navbar() {
       <div className="bg-foreground text-white text-center py-2.5 px-4 text-sm relative z-50">
         <span className="inline-flex items-center gap-2">
           <span className="bg-accent text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-            New
+            Launching Soon
           </span>
           <span className="text-gray-300">
-            Now detecting 15+ AI interview tools including ChatGPT Voice Mode
+            Join the waitlist — get 30 days free when we go live
           </span>
-          <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
+          <a href="#waitlist" className="inline-flex items-center gap-1 text-white font-medium hover:text-accent transition-colors">
+            Claim your spot
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
         </span>
       </div>
 
