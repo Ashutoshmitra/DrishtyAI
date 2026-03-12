@@ -2,31 +2,21 @@
 
 import { useState } from "react";
 
-const ROLES = [
-  "HR / Recruiter",
-  "Hiring Manager",
-  "Talent Acquisition Lead",
-  "Engineering Manager",
-  "Founder / CEO",
-  "Other",
-];
-
 export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !role) return;
+    if (!email) return;
 
     setStatus("loading");
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, role, linkedin: "" }),
+        body: JSON.stringify({ email, role: "", linkedin: "" }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -39,7 +29,6 @@ export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
       }
       setStatus("success");
       setEmail("");
-      setRole("");
     } catch {
       setErrorMsg("Something went wrong. Please try again.");
       setStatus("error");
@@ -75,28 +64,15 @@ export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
   // Inline version — embedded in Hero
   if (inline) {
     return (
-      <form onSubmit={handleSubmit} className="mt-8 flex flex-col items-center gap-3 max-w-md mx-auto">
-        <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
-          <input
-            type="email"
-            required
-            placeholder="Enter work email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full sm:flex-1 px-4 py-3 rounded-full border border-gray-300 text-sm text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors"
-          />
-          <select
-            required
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className="w-full sm:w-auto px-4 py-3 rounded-full border border-gray-300 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors bg-white appearance-none"
-          >
-            <option value="" disabled>Your role</option>
-            {ROLES.map((r) => (
-              <option key={r} value={r}>{r}</option>
-            ))}
-          </select>
-        </div>
+      <form onSubmit={handleSubmit} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        <input
+          type="email"
+          required
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full sm:flex-1 px-4 py-3 rounded-full border border-gray-300 text-sm text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors"
+        />
         <button
           type="submit"
           disabled={status === "loading"}
@@ -121,30 +97,19 @@ export default function WaitlistForm({ inline = false }: { inline?: boolean }) {
         <p className="mt-3 text-gray-500">
           Drop your email. We&apos;ll notify you first.
         </p>
-        <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3 max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="mt-6 flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto">
           <input
             type="email"
             required
-            placeholder="Enter work email"
+            placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 rounded-full border border-gray-300 text-sm text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors"
+            className="w-full sm:flex-1 px-4 py-3 rounded-full border border-gray-300 text-sm text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors"
           />
-          <select
-            required
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className="w-full px-4 py-3 rounded-full border border-gray-300 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors bg-white appearance-none"
-          >
-            <option value="" disabled>Select your role</option>
-            {ROLES.map((r) => (
-              <option key={r} value={r}>{r}</option>
-            ))}
-          </select>
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full px-8 py-3 text-sm font-medium text-white bg-foreground rounded-full hover:bg-gray-800 transition-colors disabled:opacity-60"
+            className="w-full sm:w-auto px-8 py-3 text-sm font-medium text-white bg-foreground rounded-full hover:bg-gray-800 transition-colors disabled:opacity-60 whitespace-nowrap"
           >
             {status === "loading" ? "..." : "Get Early Access"}
           </button>
